@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdint.h>
 #include "fixed_point.h"
-
+#include <stdlib.h>
 
 int main(int argc, char **argv) {
     if (argc != 6) {
@@ -9,8 +9,16 @@ int main(int argc, char **argv) {
         printf("All inputs must be integers. (x/a/b/c/q are int16 raw fixed-point values)\n");
         return 0;
     }
+    // parse arguments from string to int16_t
+    int16 x = (int16_t)atoi(argv[1]);
+    int16 a = (int16_t)atoi(argv[2]);
+    int16 b = (int16_t)atoi(argv[3]);
+    int16 c = (int16_t)atoi(argv[4]);
+    int16 q = (int16_t)atoi(argv[5]);
 
-    // TODO
+    
+    // Evaluate and print the polynomial
 
+    eval_poly_ax2_minus_bx_plus_c_fixed(x,a,b,c,q);
     return 0;
 }
